@@ -9,7 +9,7 @@ import (
 
 var _ results.Maybe = results.Maybe1[any]{}
 
-func ExampleMaybe() {
+func ExampleMaybe1() {
 	v := results.May1(strconv.Atoi("999")).Or(42)
 	fmt.Println(v)
 
