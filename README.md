@@ -1,6 +1,8 @@
 # results
 Package results provides generic types for handling function results with potential errors.
 
+[![Go Reference](https://pkg.go.dev/badge/github.com/goaux/results.svg)](https://pkg.go.dev/github.com/goaux/results)
+
 It offers Maybe1, Maybe2, and Maybe3 types that encapsulate one, two, or three values
 respectively, along with an error. These types simplify error handling and provide
 a convenient way to work with functions that may fail.
