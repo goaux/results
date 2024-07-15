@@ -54,4 +54,3 @@ func TestMust3(t *testing.T) {
 	}()
 	results.Must3("", 0, false, errors.New("test error"))
 }
-
