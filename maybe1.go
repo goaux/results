@@ -1,5 +1,7 @@
 package results
 
+import "github.com/goaux/stacktrace"
+
 // Maybe1 holds a value and an error
 type Maybe1[T any] struct {
 	V0  T
@@ -25,7 +27,7 @@ func (m Maybe1[T]) Or(defaultValue T) T {
 // OrPanic panics if there's an error, otherwise returns the stored value
 func (m Maybe1[T]) OrPanic() T {
 	if m.Err != nil {
-		panic(m.Err)
+		panic(stacktrace.Format(m.Err))
 	}
 	return m.V0
 }
