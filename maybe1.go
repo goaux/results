@@ -24,6 +24,15 @@ func (m Maybe1[T]) Or(defaultValue T) T {
 	return m.V0
 }
 
+// OrFunc returns the result of the function if there is an error, otherwise it returns the stored value.
+// The function f is called only if there is an error.
+func (m Maybe1[T]) OrFunc(f func() T) T {
+	if m.Err != nil {
+		return f()
+	}
+	return m.V0
+}
+
 // OrPanic panics if there's an error, otherwise returns the stored value
 func (m Maybe1[T]) OrPanic() T {
 	if m.Err != nil {

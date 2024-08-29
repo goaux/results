@@ -18,8 +18,12 @@ func ExampleMaybe1() {
 
 	v = results.May1(strconv.Atoi("NaN")).Or(42)
 	fmt.Println(v)
+
+	v = results.May1(strconv.Atoi("NaN")).OrFunc(func() int { return 80 })
+	fmt.Println(v)
 	// Output:
 	// 999
 	// 999
 	// 42
+	// 80
 }

@@ -18,8 +18,14 @@ func ExampleMaybe2() {
 
 	host, port = results.May2(net.SplitHostPort("error")).Or("localhost", "80")
 	fmt.Println(host, port)
+
+	host, port = results.May2(net.SplitHostPort("error")).OrFunc(
+		func() (string, string) { return "example.com", "8080" },
+	)
+	fmt.Println(host, port)
 	// Output:
 	// example.com 80
 	// example.com 80
 	// localhost 80
+	// example.com 8080
 }

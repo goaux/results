@@ -19,8 +19,15 @@ func ExampleMaybe3() {
 	example = func(string) (x, y, z int, err error) { return 0, 0, 0, fmt.Errorf("invalid") }
 	x, y, z = results.May3(example("error")).Or(1, 1, 1)
 	fmt.Println(x, y, z)
+
+	example = func(string) (x, y, z int, err error) { return 0, 0, 0, fmt.Errorf("invalid") }
+	x, y, z = results.May3(example("error")).OrFunc(
+		func() (int, int, int) { return 2, 3, 4 },
+	)
+	fmt.Println(x, y, z)
 	// Output:
 	// 8 7 6
 	// 8 7 6
 	// 1 1 1
+	// 2 3 4
 }

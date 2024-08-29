@@ -28,6 +28,15 @@ func (m Maybe3[T0, T1, T2]) Or(d0 T0, d1 T1, d2 T2) (T0, T1, T2) {
 	return m.V0, m.V1, m.V2
 }
 
+// OrFunc returns the result of the function if there is an error, otherwise it returns the stored value.
+// The function f is called only if there is an error.
+func (m Maybe3[T0, T1, T2]) OrFunc(f func() (T0, T1, T2)) (T0, T1, T2) {
+	if m.Err != nil {
+		return f()
+	}
+	return m.V0, m.V1, m.V2
+}
+
 // OrPanic panics if there's an error, otherwise returns the stored values
 func (m Maybe3[T0, T1, T2]) OrPanic() (T0, T1, T2) {
 	if m.Err != nil {
