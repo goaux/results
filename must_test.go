@@ -7,6 +7,19 @@ import (
 	"github.com/goaux/results"
 )
 
+func TestMust(t *testing.T) {
+	// Test successful case
+	results.Must(func() error { return nil }())
+
+	// Test panic case
+	defer func() {
+		if r := recover(); r == nil {
+			t.Errorf("The code did not panic")
+		}
+	}()
+	results.Must(errors.New("test error"))
+}
+
 func TestMust1(t *testing.T) {
 	// Test successful case
 	v := results.Must1(42, nil)

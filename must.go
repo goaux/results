@@ -2,6 +2,14 @@ package results
 
 import "github.com/goaux/stacktrace"
 
+// Must panics if the error is non-nil.
+// It's useful for operations that should never fail during normal execution.
+func Must(err error) {
+	if err != nil {
+		panic(stacktrace.Format(err))
+	}
+}
+
 // Must1 panics if the error is non-nil, otherwise returns the value.
 // It's useful for operations that should never fail during normal execution.
 func Must1[T any](v T, err error) T {
