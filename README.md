@@ -56,3 +56,14 @@ The numbers "2" and "3" in the function names refer to the number of arguments t
 
     firstOf3 := results.Take3(anotherFunction())
     the2, the3 := results.Drop3(anotherFunction())
+
+## If1 and If2
+
+If1 and If2 functions simulate conditional expression.
+
+### Example
+
+    // someFunction returns a value of any type and a boolean value.
+    value := results.If1(someFunction()).Or(valueForFalse)
+    // anotherFunction returns two values of any type and a boolean value.
+    v1, v2 := results.If2(anotherFunction()).Or(fallback0, fallback1)

@@ -1,5 +1,6 @@
 package results
 
+// Maybe is the interface for [Maybe1], [Maybe2] and [Maybe3].
 type Maybe interface {
 	// Values returns the stored values.
 	Values() []any
