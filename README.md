@@ -67,3 +67,21 @@ If1 and If2 functions simulate conditional expression.
     value := results.If1(someFunction()).Or(valueForFalse)
     // anotherFunction returns two values of any type and a boolean value.
     v1, v2 := results.If2(anotherFunction()).Or(fallback0, fallback1)
+
+## ErrorAs
+
+ErrorAs returns the result of calling errors.As(err, &target).
+
+The coding pattern using errors.As is following:
+
+    var pathError *fs.PathError
+    if errors.As(err, &pathError) {
+
+Using ErrorAs is a bit more concise:
+
+    if pathError, ok := results.ErrorAs[*fs.PathError](err); ok {
+
+Improvements:
+
+- Just one line.
+- Create a scope for the pathError variable.
