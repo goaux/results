@@ -79,4 +79,9 @@
 //
 //   - Just one line.
 //   - Create a scope for the pathError variable.
+//
+// # TypeAs
+//
+// TypeAs returns the result of type assertions.
+// This is a funciton, so it is addressable.
 package results

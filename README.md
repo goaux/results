@@ -85,3 +85,8 @@ Improvements:
 
 - Just one line.
 - Create a scope for the pathError variable.
+
+## TypeAs
+
+TypeAs returns the result of type assertions.
+This is a function, so it is addressable.
