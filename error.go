@@ -17,7 +17,7 @@ import "errors"
 //
 //   - Just one line.
 //   - Create a scope for the pathError variable.
-func ErrorAs[T error](err error) (target T, ok bool) {
+func ErrorAs[T any](err error) (target T, ok bool) {
 	ok = errors.As(err, &target)
 	return
 }
