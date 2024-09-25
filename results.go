@@ -35,23 +35,25 @@
 //	value := results.Must1(someFunction())
 //	v1, v2 := results.Must2(anotherFunction())
 //
-// # Take and Drop
+// # Multiple Results
 //
-// [Take2], [Drop2], [Take3] and [Drop3] functions can reduce the results of functions.
+// Functions allow you to select specific parameters from a set of two or three parameters of different types.
 //
-// Both [Take2] and [Take3] return only the first value.
+//   - [Get1of2] returns the first parameter from two parameters
+//   - [Get2of2] returns the second parameter from two parameters
+//   - [Get1of3] returns the first parameter from three parameters
+//   - [Get2of3] returns the second parameter from three parameters
+//   - [Get3of3] returns the third parameter from three parameters
+//   - [Get12of3] returns the first two parameters from three parameters
+//   - [Get23of3] returns the last two parameters from three parameters
 //
-// Both [Drop2] and [Drop3] discard the first value, return remaining value(s).
-//
-// The numbers "2" and "3" in the function names refer to the number of arguments they accept.
+// These deprecate [Take2], [Drop2], [Take3] and [Drop3].
 //
 // Example
 //
-//	first := results.Take2(someFunction())
-//	second := results.Drop2(someFunction())
-//
-//	firstOf3 := results.Take3(anotherFunction())
-//	the2, the3 := results.Drop3(anotherFunction())
+//	first := results.jet1of2(1, "two")
+//	second := results.Get2of2(1, "two")
+//	firstOfThree := results.Get1of3(1, "two", 3.0)
 //
 // # If1 and If2
 //

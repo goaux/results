@@ -39,15 +39,45 @@ The number "1", "2" and "3" in the function name refer to the number of values t
     value := results.Must1(someFunction())
     v1, v2 := results.Must2(anotherFunction())
 
-## Take and Drop
+## Multiple Results
 
-Take2, Drop2, Take3 and Drop3 functions can reduce the results of functions.
+Functions allow you to select specific parameters from a set of two or three parameters of different types.
 
-Both Take2 and Take3 return only the first value.
+```
+func Get1of2[A, B any](a A, _ B) A
+    Get1of2 returns the first parameter of type A from two parameters.
 
-Both Drop2 and Drop3 discard the first value, return remaining value(s).
+func Get2of2[A, B any](_ A, b B) B
+    Get2of2 returns the second parameter of type B from two parameters.
 
-The numbers "2" and "3" in the function names refer to the number of arguments they accept.
+func Get1of3[A, B, C any](a A, _ B, _ C) A
+    Get1of3 returns the first parameter of type A from three parameters.
+
+func Get2of3[A, B, C any](_ A, b B, _ C) B
+    Get2of3 returns the second parameter of type B from three parameters.
+
+func Get3of3[A, B, C any](_ A, _ B, c C) C
+    Get3of3 returns the third parameter of type C from three parameters.
+
+func Get12of3[A, B, C any](a A, b B, _ C) (A, B)
+    Get12of3 returns the first two parameters of types A and B from three
+    parameters.
+
+func Get23of3[A, B, C any](_ A, b B, c C) (B, C)
+    Get23of3 returns the last two parameters of types B and C from three
+    parameters.
+```
+
+You can call the functions with appropriate type parameters:
+
+```go
+first := results.Get1of2(1, "two")
+second := results.Get2of2(1, "two")
+firstOfThree := results.Get1of3(1, "two", 3.0)
+// ... and so on
+```
+
+These deprecate Take2, Drop2, Take3 and Drop3.
 
 ### Example
 
