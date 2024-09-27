@@ -55,9 +55,9 @@
 //	second := results.Get2of2(1, "two")
 //	firstOfThree := results.Get1of3(1, "two", 3.0)
 //
-// # If1 and If2
+// # If, IfFunc, If1 and If2
 //
-// [If1] and [If2] functions simulate conditional expression.
+// [If], [IfFunc], [If1] and [If2] functions simulate conditional expression.
 //
 // Example
 //
