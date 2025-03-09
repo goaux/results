@@ -3,7 +3,6 @@ package results_test
 import (
 	"fmt"
 	"os"
-	"slices"
 	"testing"
 
 	"github.com/goaux/results"
@@ -91,7 +90,7 @@ func TestTrue1(t *testing.T) {
 		t.Run("true", func(t *testing.T) {
 			got := results.If1(99, true).Values()
 			want := []any{99}
-			if !slices.Equal(got, want) {
+			if !slicesEqual(got, want) {
 				t.Errorf("must be equal, got %v, want %v", got, want)
 			}
 		})
@@ -99,7 +98,7 @@ func TestTrue1(t *testing.T) {
 		t.Run("false", func(t *testing.T) {
 			got := results.If1(99, false).Values()
 			want := []any{99}
-			if !slices.Equal(got, want) {
+			if !slicesEqual(got, want) {
 				t.Errorf("must be equal, got %v, want %v", got, want)
 			}
 		})
