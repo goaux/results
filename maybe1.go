@@ -1,6 +1,6 @@
 package results
 
-import "github.com/goaux/stacktrace"
+import "github.com/goaux/stacktrace/v2"
 
 // Maybe1 holds a value and an error
 type Maybe1[T any] struct {
