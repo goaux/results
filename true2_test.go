@@ -2,7 +2,6 @@ package results_test
 
 import (
 	"fmt"
-	"slices"
 	"testing"
 
 	"github.com/goaux/results"
@@ -88,7 +87,7 @@ func TestTrue2(t *testing.T) {
 		t.Run("true", func(t *testing.T) {
 			got := results.If2(99, 4.2, true).Values()
 			want := []any{99, 4.2}
-			if !slices.Equal(got, want) {
+			if !slicesEqual(got, want) {
 				t.Errorf("must be equal, got %v, want %v", got, want)
 			}
 		})
@@ -96,7 +95,7 @@ func TestTrue2(t *testing.T) {
 		t.Run("false", func(t *testing.T) {
 			got := results.If2(99, 4.2, false).Values()
 			want := []any{99, 4.2}
-			if !slices.Equal(got, want) {
+			if !slicesEqual(got, want) {
 				t.Errorf("must be equal, got %v, want %v", got, want)
 			}
 		})
