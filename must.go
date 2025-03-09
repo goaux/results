@@ -1,6 +1,6 @@
 package results
 
-import "github.com/goaux/stacktrace"
+import "github.com/goaux/stacktrace/v2"
 
 // Must panics if the error is non-nil.
 // It's useful for operations that should never fail during normal execution.
